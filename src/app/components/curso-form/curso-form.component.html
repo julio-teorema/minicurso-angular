@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Novo curso</h1>
+
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" [ngClass]="{'was-validated': submitted}">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control invalid" id="nome" formControlName="nome" required>
+            <div class="invalid-feedback" *ngIf="form.controls['nome'].hasError('required')">
+                Informe o nome do curso
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="duracao">Duração</label>
+            <input type="number" class="form-control" id="duracao" formControlName="duracao" required>
+            <div class="invalid-feedback" *ngIf="form.controls['duracao'].hasError('required')">
+                Informe a duração do curso
+            </div>
+        </div>
+
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+    </form>
+</div>
